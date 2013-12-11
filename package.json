@@ -1,0 +1,18 @@
+{
+  "name": "easyintegrationtest",
+  "version": "0.0.1",
+  "description": "Bootstrap of tools to do CasperJS integration testing",
+  "author": "Pål Ruud <ruudud@gmail.com>",
+  "repository": [
+    {
+      "type": "git",
+      "url": "https://github.com/iterate/iterateconf.git"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-casperjs": "~1.4.0"
+  }
+}
