@@ -13,6 +13,9 @@
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.2",
-    "grunt-casperjs": "~1.4.0"
+    "grunt-casperjs": "~1.4.0",
+    "replay": "~1.9.1",
+    "node-static": "~0.7.2",
+    "request": "~2.30.0"
   }
 }
