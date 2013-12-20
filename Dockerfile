@@ -4,8 +4,10 @@ MAINTAINER Pål Ruud <ruudud@gmail.com>
 RUN mkdir /app
 ADD . /app
 
-RUN npm install /app
-
 WORKDIR /app
-CMD ["echo", "yeay"]
-#CMD ["/usr/bin/grunt", "help"]
+RUN npm install .
+
+# Allows grunt arguments to be overridden:
+# `docker run ruudud/grunt server` will pass "server" to grunt instead of test.
+CMD ["test"]
+ENTRYPOINT ["/usr/bin/grunt"]

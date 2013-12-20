@@ -1,6 +1,6 @@
-# Some stuff borrowed from the Makefile in progrium/dokku
+# Docker install borrowed from the Makefile in http://github.com/progrium/dokku
 
-.PHONY: all install dependencies docker aufs stack test
+.PHONY: all install dependencies docker aufs nodestack gruntstack test
 
 all:
 	# Run `make install` to install stuff
@@ -17,10 +17,12 @@ docker: aufs
 aufs:
 	lsmod | grep aufs || modprobe aufs || apt-get install -y linux-image-extra-`uname -r`
 
-stack:
+nodestack:
 	@docker images | grep ruudud/nodejs || docker build -t ruudud/nodejs dockers/nodejs/.
 
-test: stack
-	@docker build -t ruudud/caspertest .
+gruntstack: nodestack
+	@docker images | grep ruudud/caspertest || docker build -t ruudud/grunt .
 
+test: gruntstack
+	@docker run ruudud/grunt
 
